@@ -1,19 +1,48 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import BiggestNumber from './components/biggest-number';
-
-import NegativeNumber from './components/negative-number';
+import { useState } from 'react';
+import { Alert, Button, Image, StyleSheet, TextInput, View } from 'react-native';
 
 export default function App() {
+
+  const [Name, setName] = useState('');
+  const [Email, setEmail] = useState('');
+
+  function notificacao(name, email) {
+    Alert.alert('Olá, ' + name + '\nVocê foi cadastrado no e-mail ' + email);
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Aula 20/02</Text>
+      <Image 
+        source={require('./assets/bala-no-alvo.png')} 
+        style={styles.image} 
+      />
 
-      <BiggestNumber numero1={4} numero2={2} numero3={10} />
+      <TextInput 
+        style={styles.input} 
+        placeholder='Digite seu nome'
+        placeholderTextColor="#8b4513"
+        maxLength={30}
+        value={Name}
+        onChangeText={text => setName(text)}
+      />
 
-      <NegativeNumber numero={-5} />
+      <TextInput 
+        style={styles.input} 
+        placeholder='Digite seu e-mail'
+        placeholderTextColor="#8b4513"
+        keyboardType="email-address"
+        maxLength={100}
+        value={Email}
+        onChangeText={text => setEmail(text)}
+      />
 
-      <StatusBar style="auto" />
+      <Button
+        onPress={() => notificacao(Name, Email)}
+        title="Cadastrar"
+        color="#8b4513"
+        accessibilityLabel="Enviar dados de nome e email"
+      />
+
     </View>
   );
 }
@@ -24,5 +53,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 50
+  },
+  input: {
+    borderWidth: 3,
+    borderColor: '#8b4513',
+    marginTop: 10,
+    marginBottom: 10,
+    borderRadius: 10,
+    color: '#8b4513',
+    width: 200,
+    textAlign: 'center',
+    fontWeight: 'bold'
+  },
+  image: {
+    borderRadius: 5,
+    width: 150,
+    height: 150,
   },
 });
