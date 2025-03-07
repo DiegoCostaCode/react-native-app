@@ -10,13 +10,13 @@ export default function DrawerRouters() {
     return (
         <Drawer.Navigator >
             <Drawer.Screen
-                options={{ tabBarIcon: () => <Feather name="home" size={30} color="red" /> }}
+                options={{ drawerIcon: () => <Feather name="home" size={30} color="red" /> }}
                 name="rota1"
                 component={RotaTeste}
             />
 
             <Drawer.Screen
-                options={{ tabBarIcon: () => <Feather name="box" size={30} color="red" /> }}
+                options={{ drawerIcon: () => <Feather name="box" size={30} color="red" /> }}
                 name="rota2"
                 component={RotaTesteDois}
             />
