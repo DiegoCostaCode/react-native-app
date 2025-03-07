@@ -1,49 +1,53 @@
-import { useState } from 'react';
-import { Alert, Button, Image, StyleSheet, TextInput, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import 'react-native-gesture-handler';
+import Routers from './src/routers';
 
 export default function App() {
 
-  const [Name, setName] = useState('');
-  const [Email, setEmail] = useState('');
+  // const [Name, setName] = useState('');
+  // const [Email, setEmail] = useState('');
 
-  function notificacao(name, email) {
-    Alert.alert('Olá, ' + name + '\nVocê foi cadastrado no e-mail ' + email);
-  }
+  // function notificacao(name, email) {
+  //   Alert.alert('Olá, ' + name + '\nVocê foi cadastrado no e-mail' + '\n' + email);
+  // }
 
   return (
-    <View style={styles.container}>
-      <Image 
-        source={require('./assets/bala-no-alvo.png')} 
-        style={styles.image} 
-      />
+    // <View style={styles.container}>
+    //   <Image
+    //     source={require('./assets/bala-no-alvo.png')}
+    //     style={styles.image}
+    //   />
 
-      <TextInput 
-        style={styles.input} 
-        placeholder='Digite seu nome'
-        placeholderTextColor="#8b4513"
-        maxLength={30}
-        value={Name}
-        onChangeText={text => setName(text)}
-      />
+    //   <TextInput
+    //     style={styles.input}
+    //     placeholder='Digite seu nome'
+    //     placeholderTextColor="#8b4513"
+    //     maxLength={30}
+    //     value={Name}
+    //     onChangeText={text => setName(text)}
+    //   />
 
-      <TextInput 
-        style={styles.input} 
-        placeholder='Digite seu e-mail'
-        placeholderTextColor="#8b4513"
-        keyboardType="email-address"
-        maxLength={100}
-        value={Email}
-        onChangeText={text => setEmail(text)}
-      />
+    //   <TextInput
+    //     style={styles.input}
+    //     placeholder='Digite seu e-mail'
+    //     placeholderTextColor="#8b4513"
+    //     keyboardType="email-address"
+    //     maxLength={100}
+    //     value={Email}
+    //     onChangeText={text => setEmail(text)}
+    //   />
 
-      <Button
-        onPress={() => notificacao(Name, Email)}
-        title="Cadastrar"
-        color="#8b4513"
-        accessibilityLabel="Enviar dados de nome e email"
-      />
+    //   <Button
+    //     onPress={() => notificacao(Name, Email)}
+    //     title="Cadastrar"
+    //     color="#8b4513"
+    //     accessibilityLabel="Enviar dados de nome e email"
+    //   />
 
-    </View>
+
+
+    // </View>
+    <Routers />
   );
 }
 
